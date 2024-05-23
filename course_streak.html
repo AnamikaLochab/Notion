@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <title>Lecture Progress Tracker</title>
 <style>
-  #progress-bar { width: 100%; height: 50px; background-color: #f0f0f0; }
-  #completed-lectures { height: 50px; background-color: #76448A; transition: width 0.5s; }
+  #progress-bar { width: 100%; height: 20px; background-color: #f0f0f0; }
+  #completed-lectures { height: 20px; background-color: #76448A; transition: width 0.5s; }
   .coffee-icon {
   background-image: url('image-removebg-preview.png'); /* Check this path */
   background-size: cover; /* Cover the area of the div */
@@ -14,13 +14,27 @@
   height: 20px; /* Height of the icon */
   display: inline-block; /* This will line up icons horizontally */
 }
+  #coffee-button {
+    background-image: url('image-removebg-preview.png'); /* Use your coffee cup image */
+    background-size: cover; /* Cover the area of the button */
+    background-repeat: no-repeat; /* Prevent repeating the image */
+    width: 40px; /* Width of the button */
+    height: 40px; /* Height of the button */
+    border: none; /* Remove border */
+    cursor: pointer; /* Change cursor to pointer when hovering over the button */
+}
+
+/* Optional: Style for when the button is hovered to give some feedback */
+#coffee-button:hover {
+    opacity: 0.8; /* Slightly transparent on hover */
+}
 </style>
 </head>
 <body>
 <div id="progress-bar">
   <div id="completed-lectures"></div>
 </div>
-<button onclick="incrementLecture()">Complete +1 Lecture</button>
+<button id="coffee-button" onclick="incrementLecture()"></button>
 <script>
 var completedLectures = 0; // Initialize completed lectures count
 
