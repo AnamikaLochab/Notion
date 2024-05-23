@@ -93,7 +93,7 @@ function updateProgress(completed) {
   var percentageCompleted = (completed / totalLectures) * 100;
   document.getElementById('completed-lectures').style.width = percentageCompleted + '%';
   // The icon now just stays at the end, always present
-  document.getElementById('percentage-label').innerText = percentageCompleted.toFixed(1) + '%'; // Shows percentage with one decimal place
+  document.getElementById('percentage-label').innerText = completed + '/41'; // Shows percentage with one decimal place
 }
 
 </script>
