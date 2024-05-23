@@ -13,14 +13,13 @@
     background-color: #76448A;
     transition: width 0.5s;
 }
-  .coffee-icon {
-  background-image: url('image-removebg-preview.png'); /* Check this path */
-  background-size: cover; /* Cover the area of the div */
-  background-repeat: no-repeat; /* Prevent repeating the image */
-  background-position: center;
-  width: calc(100% / 41); /* Each icon takes up an equal part of the total bar width */
-  height: 100%;
-  display: inline-block; /* This will line up icons horizontally */
+.coffee-icon {
+    max-width: calc(100% / 41);
+    height: 100%;
+    flex: 0 0 auto; /* This prevents the icons from growing or shrinking */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
   #coffee-button {
     background-image: url('image-removebg-preview.png'); /* Use your coffee cup image */
