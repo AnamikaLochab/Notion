@@ -5,7 +5,12 @@
 <title>Lecture Progress Tracker</title>
 <style>
   #progress-bar { width: 100%; height: 20px; background-color: #f0f0f0; }
-  #completed-lectures { height: 20px; background-color: #76448A; transition: width 0.5s; }
+  #completed-lectures {
+    display: flex; /* Aligns children inline and distributes space among them */
+    align-items: center; /* Centers icons vertically */
+    justify-content: start; /* Aligns icons to the start of the container */
+    overflow: hidden; /* Hides any part of the icon that would overflow */
+}
   .coffee-icon {
   background-image: url('image-removebg-preview.png'); /* Check this path */
   background-size: cover; /* Cover the area of the div */
