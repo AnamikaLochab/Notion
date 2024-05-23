@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Lecture Progress Tracker</title>
+<style>
+  #progress-container {
+  display: flex;
+  align-items: center; /* Vertical alignment */
+}
+
+#progress-bar {
+  width: 80%; /* Adjust this as needed */
+  height: 20px;
+  background-color: #f0f0f0;
+}
+
+#completed-lectures {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  background-color: #76448A;
+  transition: width 0.5s;
+  position: relative;
+}
+
+#percentage-label {
+  padding-left: 10px; /* Space from the progress bar */
+  font-size: 16px; /* Adjust as needed */
+  color: #333; /* Font color, adjust as needed */
+}
+
+.coffee-icon {
+    width: 20px;  /* Fixed width */
+    height: 20px; /* Fixed height */
+    position: absolute; /* Absolute positioning relative to its parent */
+    right: 0;   /* Align to the right end */
+    top: 0;     /* Align to the top */
+    background-image: url('study.png'); /* Ensure this is the correct path */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+  #coffee-button {
+  background-image: url('image-removebg-preview.png'); /* Ensure this is the correct path */
+  background-size: cover; /* Cover the area of the button */
+  background-repeat: no-repeat; /* Prevent repeating the image */
+  width: 40px; /* Width of the button */
+  height: 40px; /* Height of the button */
+  border: none; /* Remove border */
+  cursor: pointer; /* Change cursor to pointer when hovering over the button */
+  margin-left: 10px; /* Space from the percentage label */
+}
+
+/* Optional: Style for when the button is hovered to give some feedback */
+#coffee-button:hover {
+  opacity: 0.8; /* Slightly transparent on hover */
+}
+#course {
+    padding-left: 10px;
+    font-size: 16px;
+    color: #666;
+  }
+</style>
+</head>
+<body>
+<div id="progress-container" style="display: flex; align-items: center;">
+  <div id="progress-bar">
+    <div id="completed-lectures" style="position: relative;">
+      <div class="coffee-icon"></div> <!-- Coffee icon inside the progress bar -->
+    </div>
+  </div>
+  <span id="percentage-label">0%</span> <!-- Initial percentage value -->
+  <button id="coffee-button" onclick="incrementLecture()"></button>
+  <span id='course'>Linear Algebra</span>
+</div>
+<script>
+var completedLectures = 0; // Initialize completed lectures count
+
+function incrementLecture() {
+  if (completedLectures < 36) { // Check if the total is not exceeded
+    completedLectures++; // Increment the count
+    updateProgress(completedLectures); // Update the progress display
+  } else {
+    alert("All lectures completed!"); // Optional: Alert when all lectures are completed
+  }
+}
+
+function updateProgress(completed) {
+  var totalLectures = 36;
+  var percentageCompleted = (completed / totalLectures) * 100;
+  document.getElementById('completed-lectures').style.width = percentageCompleted + '%';
+  // The icon now just stays at the end, always present
+  document.getElementById('percentage-label').innerText = completed + '/36'; // Shows percentage with one decimal place
+}
+
+</script>
+</body>
+</html>
