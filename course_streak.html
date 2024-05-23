@@ -4,15 +4,33 @@
 <meta charset="UTF-8">
 <title>Lecture Progress Tracker</title>
 <style>
-  #progress-bar { width: 100%; height: 20px; background-color: #f0f0f0; }
-  #completed-lectures {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    height: 100%;
-    background-color: #76448A;
-    transition: width 0.5s;
+  #progress-container {
+  display: flex;
+  align-items: center; /* Vertical alignment */
 }
+
+#progress-bar {
+  width: 80%; /* Adjust this as needed */
+  height: 20px;
+  background-color: #f0f0f0;
+}
+
+#completed-lectures {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  background-color: #76448A;
+  transition: width 0.5s;
+  position: relative;
+}
+
+#percentage-label {
+  padding-left: 10px; /* Space from the progress bar */
+  font-size: 16px; /* Adjust as needed */
+  color: #333; /* Font color, adjust as needed */
+}
+
 .coffee-icon {
     width: 20px;  /* Fixed width */
     height: 20px; /* Fixed height */
@@ -39,22 +57,17 @@
 #coffee-button:hover {
     opacity: 0.8; /* Slightly transparent on hover */
 }
-#percentage-label {
-  display: inline-block;
-  padding-left: 10px; /* Space from the progress bar */
-  vertical-align: middle; /* Aligns vertically with the progress bar */
-  font-size: 16px; /* Adjust as needed */
-  color: #333; /* Font color, adjust as needed */
-}
 </style>
 </head>
 <body>
-<div id="progress-bar">
-  <div id="completed-lectures" style="position: relative;">
-    <div class="coffee-icon"></div>  <!-- Moved inside #completed-lectures -->
+<div id="progress-container" style="display: flex; align-items: center;">
+  <div id="progress-bar">
+    <div id="completed-lectures" style="position: relative;">
+      <div class="coffee-icon"></div> <!-- Coffee icon inside the progress bar -->
+    </div>
   </div>
+  <span id="percentage-label">0%</span> <!-- Initial percentage value -->
 </div>
-<span id="percentage-label"></span> 
 <button id="coffee-button" onclick="incrementLecture()"></button>
 <script>
 var completedLectures = 0; // Initialize completed lectures count
