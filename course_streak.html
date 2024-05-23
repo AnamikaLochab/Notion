@@ -13,8 +13,19 @@
 <div id="progress-bar">
   <div id="completed-lectures"></div>
 </div>
-<button onclick="updateProgress(20)">Update Progress</button>
+<button onclick="incrementLecture()">Complete +1 Lecture</button>
 <script>
+var completedLectures = 0; // Initialize completed lectures count
+
+function incrementLecture() {
+  if (completedLectures < 41) { // Check if the total is not exceeded
+    completedLectures++; // Increment the count
+    updateProgress(completedLectures); // Update the progress display
+  } else {
+    alert("All lectures completed!"); // Optional: Alert when all lectures are completed
+  }
+}
+
 function updateProgress(completed) {
   var totalLectures = 41;
   var percentageCompleted = (completed / totalLectures) * 100;
