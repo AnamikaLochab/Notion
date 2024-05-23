@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Lecture Progress Tracker</title>
+<style>
+  #progress-bar { width: 100%; height: 50px; background-color: #f0f0f0; }
+  #completed-lectures { height: 50px; background-color: #76448A; transition: width 0.5s; }
+  .coffee-icon { background-image: url('coffee-cup-icon.png'); width: 20px; height: 20px; display: inline-block; }
+</style>
+</head>
+<body>
+<div id="progress-bar">
+  <div id="completed-lectures"></div>
+</div>
+
+<script>
+function updateProgress(completed) {
+  var totalLectures = 41;
+  var percentageCompleted = (completed / totalLectures) * 100;
+  document.getElementById('completed-lectures').style.width = percentageCompleted + '%';
+  document.getElementById('completed-lectures').innerHTML = '';
+  for (var i = 0; i < completed; i++) {
+    var icon = document.createElement('div');
+    icon.className = 'coffee-icon';
+    document.getElementById('completed-lectures').appendChild(icon);
+  }
+}
+</script>
+</body>
+</html>
